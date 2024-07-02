@@ -9,12 +9,12 @@ function App() {
   useEffect(() => {
     const newSocket = io("http://localhost:5174", { transports: ["websocket"] });
 
-    newSocket.on("connect", () => {
+    newSocket.on("connection", () => {
       console.log("Connected to Socket IO");
     });
 
     newSocket.on("new_user_login", (data) => {
-      console.log("From here: ", data.message);
+      // console.log("From here: ", data.message);
       toast.info(data.message);
     });
 
